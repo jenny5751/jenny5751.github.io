@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Proteen 교수 공유 커뮤니티</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing:border-box;
+        }
+        body {
+            background:#f9f9f9
+        }
+        a:link, a:hover, a:visited {
+            color:#fff;
+            text-decoration:none;
+        }
+        nav {
+            width:100%;
+            height:auto;
+            background:#fc911c;
+            font-size:1.2em;
+            font-weight:bold;
+            position:relative;
+        }
+        nav ul {
+            display:none;
+            height:auto;
+        }
+        nav ul li {
+            display: block;
+            width:100%;
+            text-align:center;
+            border-bottom:1px solid #fff;
+        }
+        nav ul li a {
+            line-height:50px;
+        }
+        nav a#trigger {
+            display:block;
+            background-color:#fc911c;
+            width:100%;
+            padding-left:15px;
+            line-height:40px;
+            position:relative;
+        }
+        nav a#trigger::after {
+            content:"";
+            background:url(nav.png) no-repeat;
+            width:30px;
+            height:30px;
+            display:inline-block;
+            position:absolute;
+            right:15px;
+            top:10px
+        }
+        
+        @media screen and (min-width:721px){
+            nav{
+                height:40px;
+                border-bottom:2px solid #fff;
+            }
+            nav ul {
+                display:block;
+                width:720px;
+                height:40px;
+                padding:0;
+                margin:0 auto;
+            }
+            nav ul li {
+                display:inline-block;
+                width:120px;
+                border-bottom:0;
+                border-right:1px solid #fff;
+                margin-right:0px;
+            }
+            nav ul li:last-child {
+                border-right: 0;
+            }
+            nav ul li a {
+                font-size:1em;
+                line-height:40px;
+            }
+            
+            nav a#trigger{
+                display: none;
+            }
+        }
+        </style>
+</head>
+<body>
+    <h1>Proteen 교수 공유 커뮤니티</h1>
+    <nav>
+        <ul>
+            <li><a href="#">장터게시판</a></li>
+            <li><a href="#">학술게시판</a></li>
+            <li><a href="#">정보게시판</a></li>
+        </ul>
+    </nav>
+<section class="xm">
+	<div class="signin">
+	<div class="login-header">
+		<h1><i class="icon-user"></i> 로그인</h1>
+	</div>
+	<div class="login-body">
+				<form action="https://dyeon.net/index.php?act=procMemberLogin" method="post" id="fo_member_login"><input type="hidden" name="error_return_url" value="/index.php?mid=main&amp;act=dispMemberLoginForm"><input type="hidden" name="mid" value="main"><input type="hidden" name="vid" value=""><input type="hidden" name="ruleset" value="@login">
+			<input type="hidden" name="success_return_url" value="https://dyeon.net/">
+			<input type="hidden" name="act" value="procMemberLogin">
+			<input type="hidden" name="xe_validator_id" value="modules/member/skins">
+			<fieldset>
+				<div class="control-group">
+					<input type="text" name="user_id" id="uid" required="" placeholder="아이디" title="아이디">										<input type="password" name="password" id="upw" required="" placeholder="비밀번호" title="비밀번호">
+				</div>
+				<div class="control-group">
+					<label for="keepid_opt">
+						<input type="checkbox" name="keep_signed" id="keepid_opt" value="Y">
+						로그인 유지					</label>
+					<div id="warning" style="display: none;">
+						<p>브라우저를 닫더라도 로그인이 계속 유지될 수 있습니다. 로그인 유지 기능을 사용할 경우 다음 접속부터는 로그인할 필요가 없습니다. 단, 게임방, 학교 등 공공장소에서 이용 시 개인정보가 유출될 수 있으니 꼭 로그아웃을 해주세요.</p>
+					</div>
+					<input type="submit" value="로그인" class="submit btn btn-inverse">
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<div class="login-footer">
+		<a href="https://dyeon.net/index.php?mid=main&amp;act=dispMemberFindAccount">ID/PW 찾기</a>
+		|
+		<a href="https://dyeon.net/index.php?mid=main&amp;act=dispMemberSignUpForm">회원가입</a>
+	</div>
+    <div class="search_box">
+        <input type="text" id="this_Proteen_search" name="SearchText" class="text_box" title="Proteen에서 검색" autocomplete="off" onclick="clickcr(this,'flt.search','','',event);">
+        <i class="icon_search sp_blog"></i>
+                <label id="this_blog_search_placeholder" for="this_blog_search" class="label_text_box" style="display: inline;"></label>Proteen에서 검색</label>
+        <div id="autocomplete_layer" class="autocomplete_layer" style="display: none">
+            <ul class="list_autocomplete">
+            </ul>
+
+    <script src="jquery-2.2.4.min.js"></script>
+    <script>
+        $(function(){
+            var trigger=$('#trigger');
+            var menu=$('nav ul');
+            $(trigger).on('click',function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+            $(window).resize(function(){
+                var w=$(window).width();
+                if(w>320&&menu.is(':hidden')){
+                    menu.removeAttr('style')
+                }
+            });
+        });
+    </script>
+</body>
+</html>
