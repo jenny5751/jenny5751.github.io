@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Proteen 교수 공유 커뮤니티</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing:border-box;
+    }
+    body {
+        background:#f9f9f9
+    }
+    a:link, a:visited {
+        color:#fff;
+        text-decoration:none;
+    }
+    a:hover{
+        color:#64584c;
+    }
+    .box {
+        margin:0px;
+        padding:10px;
+    }
+    #container h1.logo {
+        margin-bottom: 15px;
+        height: 60px;
+    }
+    body, div, h1, h2, ol, ul, li, p, span, form, th, td, input{
+        color: #666;
+        font-family: "맑은 고딕", 돋움, tahoma;
+        _font-family: 돋움, tahoma;
+        font-size: 12px;
+        letter-spacing: -0.5px;
+    }
+
+    h1 {
+        display: block;
+        font-size: 2em;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    h2{
+        display: block;
+        font-size: 1em;
+        margin-left: 10px;
+        font-weight: bold;
+    }
+    nav {
+        width:100%;
+        height:auto;
+        background:#fc911c;
+        font-size:1.2em;
+        font-weight:bold;
+        position:relative;
+    }
+    nav ul li {
+        display: block;
+        width:100%;
+        text-align:center;
+        border-bottom:1px solid #fff;
+    }
+    .logo{
+        margin: 20px;
+        margin-left: 50px;
+        font-size: 40px;
+    }
+    .login_box{
+        margin: 40px;
+        margin-left: 50px;
+        margin-top: 10px;
+    }
+    .text{
+        margin: 10px;
+        width: 80%;
+        height: 40px;
+        border-color:#fff;
+        border-style:solid;
+    }
+    input[type="submit" i]{
+        border: none;
+        background-color: #f3583c;
+        font-size: 20px;
+        font-weight: bolder;
+        color: #fff;
+    }
+    .login_setting{
+        margin-left: 50px;
+        margin-top: -30px;
+    }
+
+    @media screen and (max-width:720px){
+        nav ul {
+            display:none;
+            height:auto;
+        }
+        nav ul li a {
+            line-height:50px;
+        }
+        nav a#trigger {
+            display:block;
+            background-color:#fc911c;
+            width:100%;
+            padding-left:15px;
+            line-height:40px;
+            position:relative
+        }
+        nav a#trigger::after {
+            content:"";
+            background:url(nav.png) no-repeat;
+            width:30px;
+            height:30px;
+            display:inline-block;
+            position:absolute;
+            right:15px;
+            top:10px
+        }
+        .search_box {
+            display:none;
+        }
+        .text_box {
+            display:none;
+        }
+        .wrapper{
+            display:block;
+            background: #febf0c;
+        }
+        .columns {
+            display:none;
+        }
+    }   
+
+    @media screen and (min-width:721px){
+        .search_box {
+            display:flex;
+            flex-flow:row-reverse;
+            width: 57%;
+            margin-left: 43%;
+            margin-bottom: 10px;
+            margin-top: -50px;
+            align-items:center;
+            padding:10px;
+            color:#f3583c;
+            font-size: 17.5px;
+            font-weight: 600;
+        }
+        .text_box {
+            flex:2 2 0;
+            height: 25px;
+            margin-left:10px;
+            border-color: #f3583c;
+            border-style:solid;
+        }
+        nav{
+            height:40px;
+            border-bottom:2px solid #fff;
+        }
+        nav ul {
+            display:flex;
+            width:725px;
+            height:40px;
+            padding:0;
+            margin:0 auto;
+            justify-content:center;
+        }
+        nav ul li {
+            display:inline-block;
+            width:180px;
+            border-bottom:0;
+            border-right:1px solid #fff;
+            margin-right:-1px;
+        }
+        nav ul li:last-child {
+            border-right: 0;
+        }
+        nav ul li a {
+            font-size:1em;
+            line-height:40px;
+        }
+        
+        nav a#trigger{
+            display: none;
+        }
+        .wrapper{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+        }
+        .left{
+            background:#febf0c;
+        }
+        .right{
+            background:#777
+        }
+        .columns{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            grid-template-rows:1fr 1fr;
+            grid-gap:25px 25px;
+            justify-content:center;
+            margin:0px;
+            padding:30px;
+            width: 100%;
+            height: 100%;
+        }
+        .op1{
+            background:#f3583c;
+            padding:20px;
+        }
+        .op2{
+            background:#febf0c;
+            padding:20px;
+        }
+        .op3{
+            background:#fc911c;
+            padding:20px;
+        }
+        .op4{
+            background:#f3582c;
+            padding:20px;
+        }
+        p{
+            font-weight: bold;
+        }
+    }
+    </style>
+    </head>
+    <body>
+        <div class="box">        
+            <h1>Proteen 교수 공유 커뮤니티</h1>
+            <div class="search_box">
+                <h2>KOR/ENG</h2>
+                <input type="text" id="this_Proteen_search" name="SearchText" class="text_box" title="Proteen에서 검색" autocomplete="off" onclick="clickcr(this,'flt.search','','',event);">
+                <i class="icon_search sp_blog"></i>
+                    <label>Proteen에서 검색</label>
+                    <label id="this_blog_search_placeholder" for="this_blog_search" class="label_text_box" style="display: inline;"></label>
+                    <div id="autocomplete_layer" class="autocomplete_layer" style="display: none">
+                        <ul class="list_autocomplete"></ul>
+                    </div>
+            </div>
+        </div>
+            <nav>
+            <ul>
+                <li><a href="인기게시글.html" target="_blank">인기게시판</a></li>
+                <li><a href="학술게시판.html" target="_blank">학술게시판</a></li>
+                <li><a href="정보게시판.html" target="_blank">정보게시판</a></li>
+                <li><a href="장터게시판.html" target="_blank">장터게시판</a></li>
+                <li><a href="음식게시판.html" target="_blank">음식게시판</a></li>
+                <li><a href="자유게시판.html" target="_blank">자유게시판</a></li>
+            </ul>
+            <a href="#" id="trigger">MENU</a>
+        </nav>
+        <div class="wrapper">
+            <div class="left box">
+                <div id="container" class="login">
+                    <h1 class="logo"><a href="/">로그인</a></h1>
+                    <form action="/user/login" method="post" class="box">
+                        <div class="login_box">
+                            <p class="input"><input type="text" name="userid" maxlength="20" class="text" placeholder="아이디"></p> 
+                            <p class="input"><input type="password" name="password" maxlength="20" class="text" placeholder="비밀번호"></p>
+                            <input type="hidden" name="redirect" value="/">
+                            <p class="submit"><input type="submit" value="로그인" class="text"></p>
+                        </div>
+                        <div class="login_setting">
+                            <label class="autologin"><div class="box"><input type="checkbox" name="autologin" value="1">로그인 유지</div></label>
+                            <p class="find box"><a href="/forgot">아이디/비밀번호 찾기</a></p>
+                            <p class="register box">
+                              <span>Proteen에 처음이신가요?</span>
+                              <a href="/register">회원가입</a>
+                            </p>
+                        </div>
+                    </form>
+                  </div>
+            </div>
+            <div class="right box">
+                <div class="columns">
+                    <div class="op1">
+                        <ul> 
+                            <p><a href="학술게시판.html" target="_blank">학술게시판</a></p>
+                            <li><a href="학술게시판 중얼중얼 1.html" target="_blank">학술게시판 중얼중얼 1</a></li>
+                            <li><a href="학술게시판 중얼중얼 2.html" target="_blank">학술게시판 중얼중얼 2</a></li>
+                            <li><a href="학술게시판 중얼중얼 3.html" target="_blank">학술게시판 중얼중얼 3</a></li>
+                            <li><a href="학술게시판 중얼중얼 4.html" target="_blank">학술게시판 중얼중얼 4</a></li>
+                        </ul>
+                    </div>
+                    <div class="op2">
+                        <ul>
+                            <p><a href="정보게시판.html" target="_blank">정보게시판</a></p>
+                            <li><a href="정보게시판 중얼중얼 1.html" target="_blank">정보게시판 중얼중얼 1</a></li>
+                            <li><a href="정보게시판 중얼중얼 2.html" target="_blank">정보게시판 중얼중얼 2</a></li>
+                            <li><a href="정보게시판 중얼중얼 3.html" target="_blank">정보게시판 중얼중얼 3</a></li>
+                            <li><a href="정보게시판 중얼중얼 4.html" target="_blank">정보게시판 중얼중얼 4</a></li>
+                        </ul>
+                    </div>
+                    <div class="op3">
+                        <ul>
+                            <p><a href="장터게시판.html" target="_blank">장터게시판</a></p>
+                            <li><a href="장터게시판 중얼중얼 1.html" target="_blank">장터게시판 중얼중얼 1</a></li>
+                            <li><a href="장터게시판 중얼중얼 2.html" target="_blank">장터게시판 중얼중얼 2</a></li>
+                            <li><a href="장터게시판 중얼중얼 3.html" target="_blank">장터게시판 중얼중얼 3</a></li>
+                            <li><a href="장터게시판 중얼중얼 4.html" target="_blank">장터게시판 중얼중얼 4</a></li>
+                        </ul>
+                    </div>
+                    <div class="op4">
+                        <ul>
+                            <p><a href="음식게시판.html" target="_blank">음식게시판</a></p>
+                            <li><a href="음식게시판 중얼중얼 1.html" target="_blank">음식게시판 중얼중얼 1</a></li>
+                            <li><a href="음식게시판 중얼중얼 2.html" target="_blank">음식게시판 중얼중얼 2</a></li>
+                            <li><a href="음식게시판 중얼중얼 3.html" target="_blank">음식게시판 중얼중얼 3</a></li>
+                            <li><a href="음식게시판 중얼중얼 4.html" target="_blank">음식게시판 중얼중얼 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    <script src="jquery-2.2.4.min.js"></script>
+    <script>
+        $(function(){
+            var trigger=$('#trigger');
+            var menu=$('nav ul');
+            $(trigger).on('click',function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+            $(window).resize(function(){
+                var w=$(window).width();
+                if(w>320&&menu.is(':hidden')){
+                    menu.removeAttr('style')
+                }
+            });
+        });
+    </script>
+    </body>
+</html>
