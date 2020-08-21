@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Proteen 교수 공유 커뮤니티</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing:border-box;
+    }
+    body {
+        background:#f9f9f9
+    }
+    a:hover, a:visited {
+        color:#fff;
+        text-decoration:none;
+    }
+    a:link{
+        color:#64584c;
+        text-decoration: none;
+    }
+    .box {
+        margin:0px;
+        padding:10px;
+    }
+    body, div, h1, h2, ol, ul, li, p, span, form, th, td, input{
+        color: #666;
+        font-family: "맑은 고딕", 돋움, tahoma;
+        _font-family: 돋움, tahoma;
+        font-size: 12px;
+        letter-spacing: -0.5px;
+    }
+
+    h1 {
+        display: block;
+        font-size: 2em;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    h2{
+        display: block;
+        font-size: 1em;
+        margin-left: 10px;
+        font-weight: bold;
+    }
+    h3{
+        display: block;
+        font-size: 3em;
+        font-weight: bolder;
+        color: #f3583c;
+        margin: 25px;
+    }
+    nav {
+        width:100%;
+        height:auto;
+        background:#fc911c;
+        font-size:1.2em;
+        font-weight:bold;
+        position:relative;
+    }
+    nav ul li {
+        display: block;
+        width:100%;
+        text-align:center;
+        border-bottom:1px solid #fff;
+    }
+    p[class="writing" i]{
+        display: flex;
+        width: 90%;
+        height: 35px;
+        margin: 10px;
+        padding: 5px;
+        background: #fc911c;
+        color: #fff;
+        font-size: 20px;
+        justify-content: center;
+    }
+    div[class="article" i] {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 10px;
+        padding: 0;
+        border-style: solid;
+        border-color: #777;
+    }
+    .title {
+        display: flex;
+        font-size: 150%;
+        margin: 10px;
+        margin-left: 10px;
+    }
+    .medium {
+        display: flex;
+        font-size: 120%;
+        margin: 10px;
+        padding: 5px;
+        max-width: 90%;
+        font-weight: normal;
+    }
+    .status {
+        display: flex;
+        flex-direction: row;
+        float: right; 
+        margin: 10px;
+        margin-left: 8px; padding: 0 2px; height: 20px; line-height: 20px;
+	    color: #a6a6a6; font-size: 12px; background-repeat: no-repeat; background-position: left center; background-size: 12px 12px; cursor: pointer;
+    }
+    .content {
+        display: flex;
+        margin:0;
+        padding: 5px;
+        font-size: 100%;
+        font-weight: normal;
+    }
+
+    @media screen and (max-width:720px){
+        nav ul {
+            display:none;
+            height:auto;
+        }
+        nav ul li a {
+            line-height:50px;
+        }
+        nav a#trigger {
+            display:block;
+            background-color:#fc911c;
+            width:100%;
+            padding-left:15px;
+            line-height:40px;
+            position:relative
+        }
+        nav a#trigger::after {
+            content:"";
+            background:url(nav.png) no-repeat;
+            width:30px;
+            height:30px;
+            display:inline-block;
+            position:absolute;
+            right:15px;
+            top:10px
+        }
+        .search_box {
+            display:none;
+        }
+        .text_box {
+            display:none;
+        }
+        .wrapper{
+            display:block;
+            background: #febf0c;
+        }
+    }    
+
+    @media screen and (max-width:720px){
+        nav ul {
+            display:none;
+            height:auto;
+        }
+        nav ul li a {
+            line-height:50px;
+        }
+        nav a#trigger {
+            display:block;
+            background-color:#fc911c;
+            width:100%;
+            padding-left:15px;
+            line-height:40px;
+            position:relative
+        }
+        nav a#trigger::after {
+            content:"";
+            background:url(nav.png) no-repeat;
+            width:30px;
+            height:30px;
+            display:inline-block;
+            position:absolute;
+            right:15px;
+            top:10px
+        }
+        .search_box {
+            display:none;
+        }
+        .text_box {
+            display:none;
+        }
+        .wrapper{
+            display:block;
+            background: #febf0c;
+        }
+        .columns {
+            display:none;
+        }
+    }   
+
+    @media screen and (min-width:721px){
+        .search_box {
+            display:flex;
+            flex-flow:row-reverse;
+            width: 57%;
+            margin-left: 43%;
+            margin-bottom: 10px;
+            margin-top: -50px;
+            align-items:center;
+            padding:10px;
+            color:#f3583c;
+            font-size: 17.5px;
+            font-weight: 600;
+        }
+        .text_box {
+            flex:2 2 0;
+            height: 25px;
+            margin-left:10px;
+            border-color: #f3583c;
+            border-style:solid;
+        }
+        nav{
+            height:40px;
+            border-bottom:2px solid #fff;
+        }
+        nav ul {
+            display:flex;
+            width:725px;
+            height:40px;
+            padding:0;
+            margin:0 auto;
+            justify-content:center;
+        }
+        nav ul li {
+            display:inline-block;
+            width:180px;
+            border-bottom:0;
+            border-right:1px solid #fff;
+            margin-right:-1px;
+        }
+        nav ul li:last-child {
+            border-right: 0;
+        }
+        nav ul li a {
+            font-size:1em;
+            line-height:40px;
+        }
+        
+        nav a#trigger{
+            display: none;
+        }
+        .wrapper{
+            display: grid;
+            grid-template-columns: 25% 75%;
+        }
+        .left {
+            margin: 15px;
+        }
+        .id_box {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            justify-content: center;
+            height: 30%;
+            background: #febf0c;
+
+        }
+        .history {
+            margin-top: 30px;
+            padding: 10px;
+            justify-content: center;
+            height: 15%;
+            background: #777;
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="submit" i]{
+            display: flex;
+            margin: 10px;
+            width: 92%;
+            height: 30px;
+            border-color: #fff;
+            border-style: solid;
+            background-color: transparent;
+            font-size: 15px;
+            font-weight: bold;
+            color: #fff;
+            justify-content: center;
+        }
+        p{
+            font-weight: bold;
+        }
+        p[class="id" i]{
+            display: flex;
+            margin: 10px;
+            padding: 0;
+            width: 92%;
+            height: 30px;
+            font-size: 14px;
+            color: #fff;
+            justify-content: center;
+        }
+        .right {
+            margin: 15px;
+        }
+    }
+    </style>
+    </head>
+<body>
+    <body>
+        <div class="box">        
+            <h1><a href="로그인 된 페이지.html" target="_self">Proteen 교수 공유 커뮤니티</a></h1>
+            <div class="search_box">
+                <h2>KOR/ENG</h2>
+                <input type="text" id="this_Proteen_search" name="SearchText" class="text_box" title="Proteen에서 검색" autocomplete="off" onclick="clickcr(this,'flt.search','','',event);">
+                <i class="icon_search sp_blog"></i>
+                    <label>Proteen에서 검색</label>
+                    <label id="this_blog_search_placeholder" for="this_blog_search" class="label_text_box" style="display: inline;"></label>
+                    <div id="autocomplete_layer" class="autocomplete_layer" style="display: none">
+                        <ul class="list_autocomplete"></ul>
+                    </div>
+            </div>
+        </div>
+            <nav>
+            <ul>
+                <li><a href="인기게시글.html" target="_blank">인기게시판</a></li>
+                <li><a href="학술게시판.html" target="_blank">학술게시판</a></li>
+                <li><a href="정보게시판.html" target="_blank">정보게시판</a></li>
+                <li><a href="장터게시판.html" target="_blank">장터게시판</a></li>
+                <li><a href="음식게시판.html" target="_blank">음식게시판</a></li>
+                <li><a href="자유게시판.html" target="_blank">자유게시판</a></li>
+            </ul>
+            <a href="#" id="trigger">MENU</a>
+        </nav>
+        <div class="wrapper">
+            <div class="left box">
+                <div class="id_box">
+                    <img hight="50" width="50" style="vertical-align:left;" src="이미지 링크">
+                    <!--이미지 크기랑 style은 내 임의대로 정한거라 수진이가 바꿔줘! :)-->    
+                    <p class="id">이름(닉네임)</p>
+                    <p class="submit"><input type="submit" value="내 정보 수정" class="text"></p>
+                    <p class="submit"><input type="submit" value="로그아웃" class="text"></p>
+                </div> 
+                <div class="history">
+                    <p class="submit"><input type="submit" value="내가 쓴 글" class="text"></p>
+                    <p class="submit"><input type="submit" value="댓글 단 글" class="text"></p>
+                    <p class="submit"><input type="submit" value="저장글" class="text"></p>
+                </div>
+            </div>
+            <div class="right box">
+                <h3>학술게시판</h3>
+                <p class="writing">글쓰기</p>
+                <ul>
+                    <li>
+                        <div class="article">
+                            <article>
+                                <a class="article" href="남이 쓴 글 페이지">
+                                    <p class="title">제목 1</p>
+                                    <p class="medium"> 글 내용 중얼중얼 1</p>
+                                    <ul class="status">
+                                        <p class="content">파일 1</p>
+                                        <p class="content">작성자</p>
+                                        <time class="content">날짜</time>
+                                    </ul>
+                                </a>
+                            </article>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>제목 2</p>
+                            <p>글 내용 중얼중얼 2</p>
+                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
+                            <p>파일 2</p>
+                            <p>작성자 2</p>
+                            <p>날짜 2</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>제목 3</p>
+                            <p>글 내용 중얼중얼 3</p>
+                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
+                            <p>파일 2</p>
+                            <p>파일 3</p>
+                            <p>작성자 3</p>
+                            <p>날짜 3</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>제목 4</p>
+                            <p>글 내용 중얼중얼 4</p>
+                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
+                            <p>파일 2</p>
+                            <p>파일 4</p>
+                            <p>작성자 4</p>
+                            <p>날짜 4</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>제목 5</p>
+                            <p>글 내용 중얼중얼 5</p>
+                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
+                            <p>파일 2</p>
+                            <p>파일 5</p>
+                            <p>작성자 5</p>
+                            <p>날짜 5</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>제목 6</p>
+                            <p>글 내용 중얼중얼 6</p>
+                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
+                            <p>파일 6</p>
+                            <p>작성자 6</p>
+                            <p>날짜 6</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>제목 7</p>
+                            <p>글 내용 중얼중얼 7</p>
+                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
+                            <p>파일 7</p>
+                            <p>작성자 7</p>
+                            <p>날짜 7</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>제목 8</p>
+                            <p>글 내용 중얼중얼 8</p>
+                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
+                            <p>파일 8</p>
+                            <p>작성자 8</p>
+                            <p>날짜 8</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>제목 9</p>
+                            <p>글 내용 중얼중얼 9</p>
+                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
+                            <p>파일 9</p>
+                            <p>작성자 9</p>
+                            <p>날짜 9</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>제목 10</p>
+                            <p>글 내용 중얼중얼 10</p>
+                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
+                            <p>파일 10</p>
+                            <p>작성자 10</p>
+                            <p>날짜 10</p>
+                        </div>
+                    </li>
+                </ul>
+                <div>
+                    <p><a href="/게시판 글 목록1/p/X" class="prev"></a>1/2/3/4/5<a href="/게시판 글 목록1/p/X">></a></p>
+                    <!--에브리타임에서는 링크를 걸어 설정해둠... 내가 잘 못 찾은거일수도... :(-->    
+                </div>
+            </div>   
+        </div>
+    <script src="jquery-2.2.4.min.js"></script>
+        <script>
+            $(function(){
+                var trigger=$('#trigger');
+                var menu=$('nav ul');
+                $(trigger).on('click',function(e) {
+                    e.preventDefault();
+                    menu.slideToggle();
+                });
+                $(window).resize(function(){
+                    var w=$(window).width();
+                    if(w>320&&menu.is(':hidden')){
+                        menu.removeAttr('style')
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
