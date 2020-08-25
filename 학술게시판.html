@@ -14,21 +14,23 @@
         -webkit-box-sizing:border-box;
     }
     body {
-        background:#f9f9f9
+        background: #f9f9f9;
     }
-    a:link, a:visited {
+    a:link {
         color:#fff;
         text-decoration:none;
     }
-    a:link {
+    a:hover {
         color: #666;
-        text-decoration: none;
     }
+    a:visited {
+        color: #053649;
+    } 
     .box {
         margin:0px;
         padding:10px;
     }
-    body, div, h1, h2, ol, ul, li, p, span, form, th, td, input{
+    body, div, h1, h2, h4, ol, ul, li, p, span, form, th, td, input{
         color: #666;
         font-family: "맑은 고딕", 돋움, tahoma;
         _font-family: 돋움, tahoma;
@@ -38,6 +40,7 @@
 
     h1 {
         display: block;
+        color: #666;
         font-size: 2em;
         margin-block-start: 0.67em;
         margin-block-end: 0.67em;
@@ -62,7 +65,7 @@
         width:100%;
         height:auto;
         background:#246c84;
-        font: #fff;
+        font: #fff !important;
         font-size:1.2em;
         font-weight:bold;
         position:relative;
@@ -84,41 +87,41 @@
         font-size: 20px;
         justify-content: center;
     }
-    div[class="article" i] {
+    .article {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: column;
         width: 90%;
         margin: 10px;
         padding: 0;
         border-style: solid;
         border-color: #777;
+        border-collapse: collapse;
     }
     .title {
         display: flex;
         font-size: 150%;
         margin: 10px;
-        margin-left: 10px;
+        margin-left: 15px;
+    }
+    hr { 
+        clear: both; 
+        height: 0; 
+        border: 0;
     }
     .medium {
         display: flex;
         font-size: 120%;
-        margin: 10px;
-        padding: 5px;
-        max-width: 90%;
+        margin: 0;
+        padding: 10px;
+        max-width: 100%;
         font-weight: normal;
+        border: none;
     }
     .status {
         display: flex;
-        flex-direction: row;
-        margin: 10px;
-        margin-left: 80%;
-        width: 20%;
-        padding: 5px;
+        flex-direction: row-reverse;
 
-    }
-    .content {
-        display: flex;
-        font-size: 100%;
     }
     @media screen and (max-width:720px){
         nav ul {
@@ -250,7 +253,7 @@
         nav a#trigger{
             display: none;
         }
-        .wrapper{
+        .wrapper {
             display: grid;
             grid-template-columns: 25% 75%;
         }
@@ -261,10 +264,19 @@
             display: flex;
             flex-direction: column;
             padding: 10px;
-            justify-content: center;
-            height: 30%;
+            height: 25%;
             background: #94a733;
+            justify-content: center;
 
+        }
+        .id_box img {
+            display: flex;
+            width: 50%;
+            height: 35%;
+            margin: 20%;
+            padding: 5px;
+            background: #fff;
+            justify-content: center;
         }
         .history {
             margin-top: 30px;
@@ -277,7 +289,7 @@
         }
         input[type="submit" i]{
             display: flex;
-            margin: 10px;
+            margin: 5px;
             width: 92%;
             height: 30px;
             border-color: #fff;
@@ -293,7 +305,7 @@
         }
         p[class="id" i]{
             display: flex;
-            margin: 10px;
+            margin: 5px;
             padding: 0;
             width: 92%;
             height: 30px;
@@ -310,7 +322,7 @@
 <body>
     <body>
         <div class="box">       
-            <h1><img src="logo.png" width="20" height="20"><a href="로그인 된 페이지.html" target="_self"> Proteen 교수 공유 커뮤니티</a></h1>
+            <h1><img src="logo.png" width="20" height="20"><a href="로그인 된 페이지.html" target="_self" style="color:#666"> Proteen 교수 공유 커뮤니티</a></h1>
             <div class="search_box">
                 <h2>KOR/ENG</h2>
                 <input type="text" id="this_Proteen_search" name="SearchText" class="text_box" title="Proteen에서 검색" autocomplete="off" onclick="clickcr(this,'flt.search','','',event);">
@@ -336,8 +348,7 @@
         <div class="wrapper">
             <div class="left box">
                 <div class="id_box">
-                    <img hight="50" width="50" style="vertical-align:left;" src="이미지 링크">
-                    <!--이미지 크기랑 style은 내 임의대로 정한거라 수진이가 바꿔줘! :)-->    
+                    <img hight="100" width="100" src="logo.png" style="justify-content: center;">  
                     <p class="id">이름(닉네임)</p>
                     <p class="submit"><input type="submit" value="내 정보 수정" class="text"></p>
                     <p class="submit"><input type="submit" value="로그아웃" class="text"></p>
@@ -349,119 +360,162 @@
                 </div>
             </div>
             <div class="right box">
-                <h3>학술게시판</h3>
+                <h3><a href="음식게시판 글 목록.html" target="_self" style="color:#053649">학술 게시판</a></h3>
                 <p class="writing">글쓰기</p>
                 <ul>
                     <li>
-                        <div class="article">
-                            <article>
-                                <a class="article" href="남이 쓴 글 페이지.html">
-                                    <h4 class="medium">제목 1</h4>                
-                                    <hr>
-                                    <p class="medium">글내용 중얼중얼 1</p>
-                                        <ul class="status">
-                                            <p class="content">파일 1</p>
-                                            <p class="content">작성자</p>
-                                            <time class="medium">08/23 19:52</time>
-                                        </ul>
-                                    <hr>
-                            </article>
-                        </div>
-                        <div>
-                            <p>제목 2</p>
-                            <p>글 내용 중얼중얼 2</p>
-                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
-                            <p>파일 2</p>
-                            <p>작성자 2</p>
-                            <p>날짜 2</p>
-                        </div>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼1</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식1</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
                     </li>
                     <li>
-                        <div>
-                            <p>제목 3</p>
-                            <p>글 내용 중얼중얼 3</p>
-                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
-                            <p>파일 2</p>
-                            <p>파일 3</p>
-                            <p>작성자 3</p>
-                            <p>날짜 3</p>
-                        </div>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼2</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식2</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
                     </li>
                     <li>
-                        <div>
-                            <p>제목 4</p>
-                            <p>글 내용 중얼중얼 4</p>
-                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
-                            <p>파일 2</p>
-                            <p>파일 4</p>
-                            <p>작성자 4</p>
-                            <p>날짜 4</p>
-                        </div>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼3</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식3</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
                     </li>
                     <li>
-                        <div>
-                            <p>제목 5</p>
-                            <p>글 내용 중얼중얼 5</p>
-                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
-                            <p>파일 2</p>
-                            <p>파일 5</p>
-                            <p>작성자 5</p>
-                            <p>날짜 5</p>
-                        </div>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼4</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식4</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
                     </li>
                     <li>
-                        <div>
-                            <p>제목 6</p>
-                            <p>글 내용 중얼중얼 6</p>
-                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
-                            <p>파일 6</p>
-                            <p>작성자 6</p>
-                            <p>날짜 6</p>
-                        </div>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼5</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식5</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
                     </li>
                     <li>
-                        <div>
-                            <p>제목 7</p>
-                            <p>글 내용 중얼중얼 7</p>
-                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
-                            <p>파일 7</p>
-                            <p>작성자 7</p>
-                            <p>날짜 7</p>
-                        </div>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼6</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식6</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
                     </li>
                     <li>
-                        <div>
-                            <p>제목 8</p>
-                            <p>글 내용 중얼중얼 8</p>
-                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
-                            <p>파일 8</p>
-                            <p>작성자 8</p>
-                            <p>날짜 8</p>
-                        </div>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼7</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식7</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
                     </li>
                     <li>
-                        <div>
-                            <p>제목 9</p>
-                            <p>글 내용 중얼중얼 9</p>
-                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
-                            <p>파일 9</p>
-                            <p>작성자 9</p>
-                            <p>날짜 9</p>
-                        </div>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼8</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식8</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
                     </li>
                     <li>
-                        <div>
-                            <p>제목 10</p>
-                            <p>글 내용 중얼중얼 10</p>
-                            <img hight="50" width="50" style="vertical-align:right;" src="이미지 링크">
-                            <p>파일 10</p>
-                            <p>작성자 10</p>
-                            <p>날짜 10</p>
-                        </div>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼9</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식9</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼10</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식10</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
                     </li>
                 </ul>
                 <div>
-                    <p><a href="/게시판 글 목록1/p/X" class="prev"></a>1/2/3/4/5<a href="/게시판 글 목록1/p/X">></a></p>
+                    <p><a href="/게시판 글 목록1/p/X" class="prev"></a>1 / 2 / 3 / 4 / 5<a href="/게시판 글 목록1/p/X">></a></p>
                     <!--에브리타임에서는 링크를 걸어 설정해둠... 내가 잘 못 찾은거일수도... :(-->    
                 </div>
             </div>   
