@@ -20,7 +20,7 @@
     }
     a:link {
         color:#fff;
-        text-decoration:none;
+        text-decoration:none; 
     }
     a:hover {
         color: #666;
@@ -67,7 +67,7 @@
         width:100%;
         height:auto;
         background:#246c84;
-        font: #fff !important;
+        font: #fff;
         font-size:1.2em;
         font-weight:bold;
         position:relative;
@@ -139,6 +139,7 @@
         justify-content: center;
         width: 100%;
     }
+
     @media screen and (max-width:720px){
         nav ul {
             display:none;
@@ -180,47 +181,6 @@
         }
         .history {
             display: none;
-        }
-    }    
-
-    @media screen and (max-width:720px){
-        nav ul {
-            display:none;
-            height:auto;
-        }
-        nav ul li a {
-            line-height:50px;
-        }
-        nav a#trigger {
-            display:block;
-            background-color:#fc911c;
-            width:100%;
-            padding-left:15px;
-            line-height:40px;
-            position:relative
-        }
-        nav a#trigger::after {
-            content:"";
-            background:url(nav.png) no-repeat;
-            width:30px;
-            height:30px;
-            display:inline-block;
-            position:absolute;
-            right:15px;
-            top:10px
-        }
-        .search_box {
-            display:none;
-        }
-        .text_box {
-            display:none;
-        }
-        .wrapper{
-            display:block;
-            background: #febf0c;
-        }
-        .columns {
-            display:none;
         }
     }   
 
