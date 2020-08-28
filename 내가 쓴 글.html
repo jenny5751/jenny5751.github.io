@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Proteen 교수 공유 커뮤니티</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing:border-box;
+    }
+    body {
+        background: #f9f9f9;
+    }
+    li {
+        list-style: none;
+    }
+    a:link {
+        color:#fff;
+        text-decoration:none; 
+    }
+    /*visited 순서 수정*/
+    a:visited {
+        color: #053649;
+    } 
+    a:hover {
+        color: #666;
+    }
+    .box {
+        margin:0px;
+        padding:10px;
+    }
+    body, div, h1, h2, h4, ol, ul, li, p, span, form, th, td, input{
+        color: #666;
+        font-family: "맑은 고딕", 돋움, tahoma;
+        _font-family: 돋움, tahoma;
+        font-size: 12px;
+        letter-spacing: -0.5px;
+    }
+
+    h1 {
+        display: block;
+        color: #666;
+        font-size: 2em;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    h2{
+        display: block;
+        font-size: 1em;
+        margin-left: 10px;
+        font-weight: bold;
+    }
+    h3{
+        display: block;
+        font-size: 3em;
+        font-weight: bolder;
+        color: #053649;
+        margin: 25px;
+    }
+    nav {
+        width:100%;
+        height:auto;
+        background:#246c84;
+        font: #fff;
+        font-size:1.2em;
+        font-weight:bold;
+        position:relative;
+    }
+    nav ul li {
+        display: block;
+        width:100%;
+        text-align:center;
+        border-bottom:1px solid #fff;
+    }
+    p[class="writing" i]{
+        display: flex;
+        width: 90%;
+        height: 35px;
+        margin: 10px;
+        padding: 5px;
+        background: #3b909c;
+        color: #fff;
+        font-size: 20px;
+        justify-content: center;
+    }
+    .article {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 90%;
+        margin: 10px;
+        padding: 0;
+        border-style: solid;
+        border-color: #777;
+        border-collapse: collapse;
+    }
+    .title {
+        display: flex;
+        font-size: 150%;
+        margin: 10px;
+        margin-left: 15px;
+    }
+    hr { 
+        clear: both; 
+        height: 0; 
+        border: 0;
+    }
+    .medium {
+        display: flex;
+        font-size: 120%;
+        margin: 0;
+        padding: 10px;
+        max-width: 100%;
+        font-weight: normal;
+        border: none;
+    }
+    .status {
+        display: flex;
+        flex-direction: row-reverse;
+
+    }
+    .prev-next {
+        display: block;
+        margin: 20px;
+        padding:0;
+        font-size: 20px;
+        justify-content: center;
+    }
+    .prev-next {
+        display: flex;
+        margin: 10px;
+        padding: 5px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    @media screen and (max-width:720px){
+        nav ul {
+            display:none;
+            height:auto;
+        }
+        nav ul li a {
+            line-height:50px;
+        }
+        nav a#trigger {
+            display:block;
+            background-color:#246c84;
+            width:100%;
+            padding-left:15px;
+            line-height:40px;
+            position:relative
+        }
+        nav a#trigger::after {
+            content:"";
+            background:url(nav.png) no-repeat;
+            width:30px;
+            height:30px;
+            display:inline-block;
+            position:absolute;
+            right:15px;
+            top:10px
+        }
+        .search_box {
+            display:none;
+        }
+        .text_box {
+            display:none;
+        }
+        .wrapper{
+            display: flex;
+            background: #f9f9f9;
+        }
+        .id_box {
+            display:none;
+        }
+        .history {
+            display: none;
+        }
+    }   
+
+    @media screen and (min-width:721px){
+        .search_box {
+            display:flex;
+            flex-flow:row-reverse;
+            width: 57%;
+            margin-left: 43%;
+            margin-bottom: 10px;
+            margin-top: -50px;
+            align-items:center;
+            padding:10px;
+            color:#053649;
+            font-size: 17.5px;
+            font-weight: 600;
+        }
+        .text_box {
+            flex:2 2 0;
+            height: 25px;
+            margin-left:10px;
+            border-color: #053649;
+            border-style:solid;
+        }
+        nav{
+            height:40px;
+            border-bottom:2px solid #fff;
+        }
+        nav ul {
+            display:flex;
+            width:725px;
+            height:40px;
+            padding:0;
+            margin:0 auto;
+            justify-content:center;
+        }
+        nav ul li {
+            display:inline-block;
+            width:180px;
+            border-bottom:0;
+            border-right:1px solid #fff;
+            margin-right:-1px;
+        }
+        nav ul li:last-child {
+            border-right: 0;
+        }
+        nav ul li a {
+            font-size:1em;
+            line-height:40px;
+        }
+        
+        nav a#trigger{
+            display: none;
+        }
+        .wrapper {
+            display: grid;
+            grid-template-columns: 25% 75%;
+        }
+        .left {
+            margin: 15px;
+        }
+        .id_box {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            height: 25%;
+            background: #94a733;
+            justify-content: center;
+
+        }
+        .id_box img {
+            display: flex;
+            width: 70%;
+            margin-top: 10%;
+            margin-left: 13%;
+            margin-right: 20%;
+            margin-bottom: 10%;
+            padding: 10%;
+            background: #fff;
+            justify-content: center;
+        }
+        .history {
+            margin-top: 30px;
+            padding: 10px;
+            justify-content: center;
+            height: 10%;
+            background: #36bf81;
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="submit" i]{
+            display: flex;
+            margin: 5px;
+            margin-left: 8px;
+            width: 93%;
+            height: 30px;
+            border-color: #fff;
+            border-style: solid;
+            background-color: transparent;
+            font-size: 15px;
+            font-weight: bold;
+            color: #fff;
+            justify-content: center;
+        }
+        p{
+            font-weight: bold;
+        }
+        p[class="id" i]{
+            display: flex;
+            margin: 5px;
+            padding: 0;
+            width: 93%;
+            height: 30px;
+            font-size: 15px;
+            color: #fff;
+            justify-content: center;
+        }
+        .right {
+            margin: 15px;
+        }
+    }
+    </style>
+    </head>
+<body>
+    <body>
+        <div class="box">       
+            <h1><img src="logo.png" width="20" height="20"><a href="로그인 된 페이지.html" target="_self" style="color:#666"> Proteen 교수 공유 커뮤니티</a></h1>
+            <div class="search_box">
+                <h2>KOR/ENG</h2>
+                <input type="text" id="this_Proteen_search" name="SearchText" class="text_box" title="Proteen에서 검색" autocomplete="off" onclick="clickcr(this,'flt.search','','',event);">
+                <i class="icon_search sp_blog"></i>
+                    <label>Proteen에서 검색</label>
+                    <label id="this_blog_search_placeholder" for="this_blog_search" class="label_text_box" style="display: inline;"></label>
+                    <div id="autocomplete_layer" class="autocomplete_layer" style="display: none">
+                        <ul class="list_autocomplete"></ul>
+                    </div>
+            </div>
+        </div>
+            <nav>
+            <ul>
+                <li><a href="인기게시글.html" target="_blank">인기게시판</a></li>
+                <li><a href="학술게시판.html" target="_blank">학술게시판</a></li>
+                <li><a href="정보게시판.html" target="_blank">정보게시판</a></li>
+                <li><a href="장터게시판.html" target="_blank">장터게시판</a></li>
+                <li><a href="음식게시판.html" target="_blank">음식게시판</a></li>
+                <li><a href="자유게시판.html" target="_blank">자유게시판</a></li>
+            </ul>
+            <a href="#" id="trigger">MENU</a>
+        </nav>
+        <div class="wrapper">
+            <div class="left box">
+                <div class="id_box">
+                    <img hight="100" width="100" src="logo.png" style="justify-content: center;">  
+                    <p class="id">이름(닉네임)</p>
+                    <p class="submit"><input type="submit" value="내 정보 수정" class="text"></p>
+                    <p class="submit"><input type="submit" value="로그아웃" class="text"></p>
+                </div> 
+                <div class="history">
+                    <p class="submit"><input type="submit" value="내가 쓴 글" class="text"></p>
+                    <p class="submit"><input type="submit" value="댓글 단 글" class="text"></p>
+                    <p class="submit"><input type="submit" value="저장글" class="text"></p>
+                </div>
+            </div>
+            <div class="right box">
+                <h3><a href="내가 쓴 글.html" target="_self" style="color:#053649">내가 쓴 글</a></h3>
+                <p class="writing">글쓰기</p>
+                <ul>
+                    <li>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼1</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식1</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼2</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식2</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼3</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식3</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼4</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식4</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼5</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식5</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼6</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식6</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼7</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식7</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼8</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식8</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼9</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식9</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a class="article" href="남이 쓴 글 페이지.html">
+                                <h4 class="title">제목이 여기에 들어갑니다 중얼중얼10</h4>                
+                                <hr>
+                                    <p class="medium">글내용 여기에 들어갑니다 중얼중얼중얼중얼 혹시 글 내용이 길어지면 어떻게 되는지 확인차 써 봅니다 중얼중얼중얼 1</p>
+                                    <ul class="status">
+                                        <time class="medium">현재 시간</time>
+                                        <p class="medium">작성자</p>
+                                        <p class="medium">파일 형식10</p>
+                                    </ul>
+                                <hr>
+                            </a>
+                        </article>
+                    </li>
+                </ul>
+                <div class="prev-next">
+                    <span class="blind" style="display: none;">페이지 네비게이션</span>
+                    <a href="1페이지.page=1" class="number" style="margin: 10px; padding: 10px; font-size: 25px; color:#666;">1</a>
+                    <a href="2페이지.page=2" style="margin: 10px; padding: 10px; font-size: 25px; color:#666;">2</a>
+                    <a href="3페이지.page=3" style="margin: 10px; padding: 10px; font-size: 25px; color:#666;">3</a>
+                    <a href="4페이지.page=4" style="margin: 10px; padding: 10px; font-size: 25px; color:#666;">4</a>
+                    <a href="5페이지.page=5" style="margin: 10px; padding: 10px; font-size: 25px; color:#666;">5</a>
+                    <a href="6페이지.page=6" class="pgR" style="margin: 10px; font-size: 30px; font-weight: bold;"><span class="m-tcol-c">다음</span></a>
+                </div>
+            </div>   
+        </div>
+    <script src="jquery-2.2.4.min.js"></script>
+        <script>
+            $(function(){
+                var trigger=$('#trigger');
+                var menu=$('nav ul');
+                $(trigger).on('click',function(e) {
+                    e.preventDefault();
+                    menu.slideToggle();
+                });
+                $(window).resize(function(){
+                    var w=$(window).width();
+                    if(w>320&&menu.is(':hidden')){
+                        menu.removeAttr('style')
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
