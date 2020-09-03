@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Proteen 교수 공유 커뮤니티</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing:border-box;
+    }
+    body {
+        background: #f9f9f9;
+    }
+    li {
+        list-style: none;
+    }
+    a:link {
+        color:#fff;
+        text-decoration:none; 
+    }
+    /*visited 순서 수정*/
+    a:visited {
+        color: #053649;
+    } 
+    a:hover {
+        color: #666;
+    }
+    .box {
+        margin:0px;
+        padding:10px;
+    }
+    body, div, h1, h2, h4, ol, ul, li, p, span, form, th, td, input{
+        color: #666;
+        font-family: "맑은 고딕", 돋움, tahoma;
+        _font-family: 돋움, tahoma;
+        font-size: 12px;
+        letter-spacing: -0.5px;
+    }
+
+    h1 {
+        display: block;
+        color: #666;
+        font-size: 2em;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    h2{
+        display: block;
+        font-size: 1em;
+        margin-left: 10px;
+        font-weight: bold;
+    }
+    h3{
+        display: block;
+        font-size: 3em;
+        font-weight: bolder;
+        color: #053649;
+        margin: 25px;
+    }
+    h4 {
+        margin: 5px;
+        font-size: 20px;
+    }
+    nav {
+        width:100%;
+        height:auto;
+        background:#246c84;
+        font: #fff;
+        font-size:1.2em;
+        font-weight:bold;
+        position:relative;
+    }
+    nav ul li {
+        display: block;
+        width:100%;
+        text-align:center;
+        border-bottom:1px solid #fff;
+    }
+    p[class="writing" i]{
+        display: flex;
+        width: 90%;
+        height: 35px;
+        margin: 10px;
+        padding: 5px;
+        background: #3b909c;
+        color: #fff;
+        font-size: 20px;
+        justify-content: center;
+    }
+    .title {
+        display: flex;
+        font-size: 150%;
+        margin: 10px;
+        margin-left: 15px;
+    }
+    .upload{
+        display: flex;
+        margin: 20px;
+        width: 85%;
+        justify-content: space-between;
+    }
+    p[class="upload" i]{
+        display: flex;
+        margin: 0;
+        background-color: #3b909c;
+        border: none;
+        }
+    .listContent {
+        display: flex;
+        margin: 20px;
+        padding: 10px;
+        border: 3px solid #053649;
+        width: 85%;
+        height: 100%;
+    }
+    ul[class="sub_title" i]{
+        display: flex;
+        flex-flow: row;
+        margin: 5px;
+        }
+    .cont {
+        margin: 5px;
+        padding: 5px;
+    }
+    .info{
+        margin: 5px;
+    }
+    .text {
+        display: flex;
+        width: 85%;
+        height: 50px;
+        margin: 20px;
+        border: 3px solid #666;
+    }
+    @media screen and (max-width:720px){
+        nav ul {
+            display:none;
+            height:auto;
+        }
+        nav ul li a {
+            line-height:50px;
+        }
+        nav a#trigger {
+            display:block;
+            background-color:#246c84;
+            width:100%;
+            padding-left:15px;
+            line-height:40px;
+            position:relative
+        }
+        nav a#trigger::after {
+            content:"";
+            background:url(nav.png) no-repeat;
+            width:30px;
+            height:30px;
+            display:inline-block;
+            position:absolute;
+            right:15px;
+            top:10px
+        }
+        .listContent {
+        display: flex;
+        margin: 20px;
+        padding: 10px;
+        border: 3px solid #053649;
+        width: 140%;
+        height: 100%;
+        }
+        .text {
+        display: flex;
+        margin: 20px;
+        padding: 10px;
+        border: 3px solid #053649;
+        width: 85%;
+        }
+        .file{
+            display: flex;
+            margin: 20px;
+            padding: 5px; 
+            border: 2px solid #666;
+            width: 140%;
+            height: 150px;
+        }
+        .upload{
+        display: flex;
+        margin: 20px;
+        width: 140%;
+        justify-content: space-between;
+        }
+        p[class="upload" i]{
+        display: flex;
+        margin: 0;
+        padding: 0;
+        background-color: #3b909c;
+        border: none;
+        width: 230%
+        }
+        .text {
+        display: flex;
+        width: 140%;
+        height: 50px;
+        margin: 20px;
+        border: 3px solid #666;
+    }
+        input[type="submit" i]{
+            display: flex;
+            margin: 5px;
+            padding: 0;
+            margin-left: 8px;
+            width: 93%;
+            height: 30px;
+            border-color: #fff;
+            border-style: solid;
+            background-color: transparent;
+            font-size: 15px;
+            font-weight: bold;
+            color: #fff;
+            justify-content: center;
+        }
+        .search_box {
+            display:none;
+        }
+        .text_box {
+            display:none;
+        }
+        .wrapper{
+            display: flex;
+            background: #f9f9f9;
+        }
+        .id_box {
+            display:none;
+        }
+        .history {
+            display: none;
+        }
+    }   
+
+    @media screen and (min-width:721px){
+        .search_box {
+            display:flex;
+            flex-flow:row-reverse;
+            width: 57%;
+            margin-left: 43%;
+            margin-bottom: 10px;
+            margin-top: -50px;
+            align-items:center;
+            padding:10px;
+            color:#053649;
+            font-size: 17.5px;
+            font-weight: 600;
+        }
+        .text_box {
+            flex:2 2 0;
+            height: 25px;
+            margin-left:10px;
+            border-color: #053649;
+            border-style:solid;
+        }
+        nav{
+            height:40px;
+            border-bottom:2px solid #fff;
+        }
+        nav ul {
+            display:flex;
+            width:725px;
+            height:40px;
+            padding:0;
+            margin:0 auto;
+            justify-content:center;
+        }
+        nav ul li {
+            display:inline-block;
+            width:180px;
+            border-bottom:0;
+            border-right:1px solid #fff;
+            margin-right:-1px;
+        }
+        nav ul li:last-child {
+            border-right: 0;
+        }
+        nav ul li a {
+            font-size:1em;
+            line-height:40px;
+        }
+        
+        nav a#trigger{
+            display: none;
+        }
+        .wrapper {
+            display: grid;
+            grid-template-columns: 25% 75%;
+        }
+        .left {
+            margin: 15px;
+        }
+        .id_box {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            height: 65%;
+            background: #94a733;
+            justify-content: center;
+
+        }
+        .id_box img {
+            display: flex;
+            width: 70%;
+            margin-top: 10%;
+            margin-left: 13%;
+            margin-right: 20%;
+            margin-bottom: 10%;
+            padding: 10%;
+            background: #fff;
+            justify-content: center;
+        }
+        .history {
+            margin-top: 30px;
+            padding: 10px;
+            justify-content: center;
+            height: 30%;
+            background: #36bf81;
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="submit" i]{
+            display: flex;
+            margin: 5px;
+            margin-left: 8px;
+            width: 93%;
+            height: 30px;
+            border-color: #fff;
+            border-style: solid;
+            background-color: transparent;
+            font-size: 15px;
+            font-weight: bold;
+            color: #fff;
+            justify-content: center;
+        }
+        p{
+            font-weight: bold;
+        }
+        p[class="id" i]{
+            display: flex;
+            margin: 5px;
+            padding: 0;
+            width: 93%;
+            height: 30px;
+            font-size: 15px;
+            color: #fff;
+            justify-content: center;
+        }
+        .right {
+            margin: 15px;
+        }
+        .file{
+            display: flex;
+            margin: 20px;
+            padding: 5px; 
+            border: 2px solid #666;
+            width: 85%;
+            height: 150px;
+        }
+    }
+    </style>
+    </head>
+<body>
+    <body>
+        <div class="box">       
+            <h1><img src="logo.png" width="20" height="20"><a href="로그인 된 페이지.html" target="_self" style="color:#666"> Proteen 교수 공유 커뮤니티</a></h1>
+            <div class="search_box">
+                <h2>KOR/ENG</h2>
+                <input type="text" id="this_Proteen_search" name="SearchText" class="text_box" title="Proteen에서 검색" autocomplete="off" onclick="clickcr(this,'flt.search','','',event);">
+                <i class="icon_search sp_blog"></i>
+                    <label>Proteen에서 검색</label>
+                    <label id="this_blog_search_placeholder" for="this_blog_search" class="label_text_box" style="display: inline;"></label>
+                    <div id="autocomplete_layer" class="autocomplete_layer" style="display: none">
+                        <ul class="list_autocomplete"></ul>
+                    </div>
+            </div>
+        </div>
+            <nav>
+            <ul>
+                <li><a href="인기게시글.html" target="_blank" style="color: #fff;">인기게시판</a></li>
+                <li><a href="학술게시판.html" target="_blank" style="color: #fff;">학술게시판</a></li>
+                <li><a href="정보게시판.html" target="_blank" style="color: #fff;">정보게시판</a></li>
+                <li><a href="장터게시판.html" target="_blank" style="color: #fff;">장터게시판</a></li>
+                <li><a href="음식게시판.html" target="_blank" style="color: #fff;">음식게시판</a></li>
+                <li><a href="자유게시판.html" target="_blank">자유게시판</a></li>
+            </ul>
+            <a href="#" id="trigger">MENU</a>
+        </nav>
+        <div class="wrapper">
+            <div class="left box">
+                <div class="id_box">
+                    <img hight="100" width="100" src="logo.png" style="justify-content: center;">  
+                    <p class="id">이름(닉네임)</p>
+                    <p class="submit"><input type="submit" value="내 정보 수정" class="text"></p>
+                    <p class="submit"><input type="submit" value="로그아웃" class="text"></p>
+                </div> 
+                <div class="history">
+                    <p class="submit"><input type="submit" value="내가 쓴 글" class="text"></p>
+                    <p class="submit"><input type="submit" value="댓글 단 글" class="text"></p>
+                    <p class="submit"><input type="submit" value="저장글" class="text"></p>
+                </div>
+            </div>
+            <div class="right box">
+                <h3><a href="자유게시판 글 목록.html" target="_self" style="color:#053649">자유 게시판</a></h3>
+                <div id="listBox">
+                    <div class="listContent">
+                        <dl class="element">
+                            <dt>
+                                <h4 class="f14 fontB">
+                                    글 제목
+                                </h4>
+                            </dt>
+                            <dd class="info">
+                                <ul>
+                                    <li>
+                                        <i class="icon-data-color"></i>
+                                        <span onclick="fileDownload_log('*28*EC*9B*90*ED*83*81*ED*86*A0*EB*A1*A0*29*20*ED*86*A0*EC*9D*98*20*ED*99*9C*EB*8F*99*EC*A7*80.hwp','COMF_20090314002393790b1c.hwp','/reference/NP170131','PFI_20090314002393790b1e','PCI_20090314002393790b1d','2018112631');" style="cursor: pointer; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'" title="첨부 파일">첨부파일</span>
+                                    </li>   
+                                </ul>
+                                <ul class="sub_title">
+                                    <li style="margin-right: 15px;"><b>작성자 :</b> 작성자이름</li>
+                                    <li style="margin-right: 15px;"><b>작성일 :</b> 20xx.xx.xx 00:00:00</li>
+                                    <li><b>조회수 :</b> 00</li>
+                                </ul>
+                            </dd>   
+                            <dd>
+                                <div class="cont"><p>남이 쓴 글 내용</p></div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="upload">
+                    <p class="upload"><input type="submit" value="저장글 등록" class="text"></p>
+                    <p class="upload"><input type="submit" value="목록" class="text"></p>
+                </div>
+                <form class="writecomment">
+                    <input type="text" name="text" maxlength="300" placeholder="댓글을 입력하세요." class="text">
+                    <ul class="option">
+                        <li title="익명" class="anonym"></li>
+                        <li title="완료" class="submit"></li>
+                    </ul>
+                </form>
+            </div>   
+        </div>
+    <script src="jquery-2.2.4.min.js"></script>
+        <script>
+            $(function(){
+                var trigger=$('#trigger');
+                var menu=$('nav ul');
+                $(trigger).on('click',function(e) {
+                    e.preventDefault();
+                    menu.slideToggle();
+                });
+                $(window).resize(function(){
+                    var w=$(window).width();
+                    if(w>320&&menu.is(':hidden')){
+                        menu.removeAttr('style')
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
